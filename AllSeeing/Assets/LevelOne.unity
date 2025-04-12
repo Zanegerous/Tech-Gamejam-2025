@@ -486,16 +486,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8585323a3df6c3d83c8ffcf44d2057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  apexSlowdown: 0.23
+  FloorCheckRadius: 0.3
   jumpPower: 23
   djPower: 18
   jumps: 0
+  rampJump: 0
+  airHorizMult: 0.98
   rb: {fileID: 220380323}
   groundCheck: {fileID: 1250115234}
   ground:
     serializedVersion: 2
     m_Bits: 64
-  gravity: 0
-  apexSlowdown: 0.23
+  ramp:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!50 &220380323
 Rigidbody2D:
   serializedVersion: 4
