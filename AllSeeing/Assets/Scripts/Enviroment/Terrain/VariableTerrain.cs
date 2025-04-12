@@ -38,24 +38,28 @@ public class VariableTerrain : MonoBehaviour
 
     private void CheckRequired(VisualState state, Color stateColor)
     {
+        SpriteTexture = GetComponent<SpriteRenderer>();
+        objectCollider = GetComponent<Collider2D>();
         bool activated = (requiredToBeActive == state);
-
-
-
-
-        if (activated && (SpriteTexture != null))
+        if (SpriteTexture != null)
         {
-            SpriteTexture.color = stateColor;
-        }
-        else
-        {
-            // have to do it this way because gameObject.SetActive(false) unsubscribes it.
-            // We may want to change the onDisable and handle it differently, but for now
-            // Im just doing this for testing purposes
-            SpriteTexture.color = Color.clear;
-            objectCollider.enabled = activated;
-            objectCollider.isTrigger = activated;
+            if (activated)
+            {
+                SpriteTexture.color = stateColor;
+            }
+            else
+            {
+                // have to do it this way because gameObject.SetActive(false) unsubscribes it.
+                // We may want to change the onDisable and handle it differently, but for now
+                // Im just doing this for testing purposes
 
+                objectCollider.enabled = activated;
+                objectCollider.isTrigger = activated;
+
+                SpriteTexture.color = Color.clear;
+
+
+            }
         }
     }
 
