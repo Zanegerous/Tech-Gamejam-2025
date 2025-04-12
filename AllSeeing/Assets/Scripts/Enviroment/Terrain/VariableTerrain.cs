@@ -28,7 +28,7 @@ public class VariableTerrain : MonoBehaviour
             CurrentVisualManager.Instance.OnVisualStateChanged += SwitchTerrainBasedOnColor;
         }
         SpriteTexture = GetComponent<SpriteRenderer>();
-        objectCollider = GetComponent<Collider2D>();
+        SwitchTerrainBasedOnColor(CurrentVisualManager.Instance.State);
     }
 
     // Update is called once per frame
