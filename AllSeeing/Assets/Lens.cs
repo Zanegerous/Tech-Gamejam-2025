@@ -7,10 +7,12 @@ public class Lens : MonoBehaviour, IInteractable
     public bool isOpened{get; private set;}
     public string LensID{get; private set;}
     public GameObject itemPrefab; // powers lens give
-    // public Sprite openedSprite;
+    public Sprite openedSprite;
+     private SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start(){
         LensID ??= GlobalHelper.GenerateUniqueID(gameObject);
+        spriteRenderer = GetComponent<SpriteRenderer>(); 
     }
 
     
@@ -37,7 +39,7 @@ public class Lens : MonoBehaviour, IInteractable
     }
     private void SetLens(bool opened){
         isOpened = opened;
-        if (isOpened && openedsprite != null && spriteRenderer != null){
+        if (isOpened && openedSprite != null && spriteRenderer != null){
             spriteRenderer.sprite = openedSprite;
         }
     }
