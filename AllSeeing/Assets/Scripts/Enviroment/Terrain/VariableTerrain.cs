@@ -8,24 +8,25 @@ public class VariableTerrain : MonoBehaviour
     public VisualState requiredToBeActive;
     private SpriteRenderer SpriteTexture;
     private Collider2D objectCollider;
+    private GameObject myObject;
 
-
-
-    // Activated or deactivates the listener to the currentVisualManager that tracks the worlds color state
-    private void OnEnable()
+    private void OnDestroy()
     {
-        CurrentVisualManager.Instance.OnVisualStateChanged += SwitchTerrainBasedOnColor;
-    }
-
-    private void OnDisable()
-    {
-        CurrentVisualManager.Instance.OnVisualStateChanged -= SwitchTerrainBasedOnColor;
+        if (requiredToBeActive != VisualState.COLORLESS_VIEW)
+        {
+            CurrentVisualManager.Instance.OnVisualStateChanged -= SwitchTerrainBasedOnColor;
+        }
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
+        // ONly listen if it can be changed
+        if (requiredToBeActive != VisualState.COLORLESS_VIEW)
+        {
+            CurrentVisualManager.Instance.OnVisualStateChanged += SwitchTerrainBasedOnColor;
+        }
         SpriteTexture = GetComponent<SpriteRenderer>();
         objectCollider = GetComponent<Collider2D>();
     }
@@ -38,27 +39,25 @@ public class VariableTerrain : MonoBehaviour
 
     private void CheckRequired(VisualState state, Color stateColor)
     {
+
         SpriteTexture = GetComponent<SpriteRenderer>();
-        objectCollider = GetComponent<Collider2D>();
         bool activated = (requiredToBeActive == state);
         if (SpriteTexture != null)
         {
+            if (requiredToBeActive == VisualState.COLORLESS_VIEW)
+            {
+                gameObject.SetActive(true);
+                SpriteTexture.color = stateColor;
+            }
+            else
             if (activated)
             {
+                gameObject.SetActive(true);
                 SpriteTexture.color = stateColor;
             }
             else
             {
-                // have to do it this way because gameObject.SetActive(false) unsubscribes it.
-                // We may want to change the onDisable and handle it differently, but for now
-                // Im just doing this for testing purposes
-
-                objectCollider.enabled = activated;
-                objectCollider.isTrigger = activated;
-
-                SpriteTexture.color = Color.clear;
-
-
+                gameObject.SetActive(false);
             }
         }
     }
@@ -83,7 +82,7 @@ public class VariableTerrain : MonoBehaviour
             case VisualState.COLORLESS_VIEW:
                 // Never should actually have a color, this doesnt affect 
                 // main scene
-                CheckRequired(state, Color.magenta);
+                CheckRequired(state, Color.white);
                 break;
         }
 

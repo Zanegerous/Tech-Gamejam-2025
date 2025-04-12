@@ -39,13 +39,12 @@ public class ViewStateSwitching : MonoBehaviour
                 break;
 
             case VisualState.BLUE_VIEW:
-                worldState = VisualState.COLORLESS_VIEW;
-                CurrentVisualManager.Instance.State = VisualState.COLORLESS_VIEW;
+                worldState = VisualState.RED_VIEW;
+                CurrentVisualManager.Instance.State = VisualState.RED_VIEW;
                 //Debug.Log("Switched to Red");
                 break;
             case VisualState.COLORLESS_VIEW:
-                worldState = VisualState.RED_VIEW;
-                CurrentVisualManager.Instance.State = VisualState.RED_VIEW;
+
                 break;
         }
 
