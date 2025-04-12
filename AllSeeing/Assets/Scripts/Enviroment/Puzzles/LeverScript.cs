@@ -20,23 +20,19 @@ public class LeverScript : MonoBehaviour
         }
     }
 
-    // Check if lever can be flipped
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("I am touching touching something and my visualchange is: " + visualChange.ToString());
         if (other.CompareTag("Player"))
         {
-            Debug.Log("I am touching the player and my visualchange is: " + visualChange.ToString());
             InArea = true;
         }
-
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("I am No Longer touching the player and my visualchange is: " + visualChange.ToString());
             InArea = false;
         }
     }
