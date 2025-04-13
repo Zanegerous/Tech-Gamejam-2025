@@ -10,8 +10,15 @@ public class PlayerAnimationManager : MonoBehaviour
     private float movementDirection;
     private SpriteRenderer SpriteTexture;
     // Start is called before the first frame update
+
+    private void OnDestroy()
+    {
+        CurrentVisualManager.Instance.OnVisualStateChanged -= SetColor;
+    }
+
     void Start()
     {
+        CurrentVisualManager.Instance.OnVisualStateChanged += SetColor;
         animator = GetComponent<Animator>();
         SpriteTexture = GetComponent<SpriteRenderer>();
         ChangeAnimation("Idle");
@@ -57,6 +64,25 @@ public class PlayerAnimationManager : MonoBehaviour
         }
     }
 
+
+    void SetColor(VisualState state)
+    {
+        switch (state)
+        {
+            case VisualState.COLORLESS_VIEW:
+                SpriteTexture.color = Color.clear;
+                break;
+            case VisualState.RED_VIEW:
+                SpriteTexture.color = Color.red;
+                break;
+            case VisualState.GREEN_VIEW:
+                SpriteTexture.color = Color.green;
+                break;
+            case VisualState.BLUE_VIEW:
+                SpriteTexture.color = Color.blue;
+                break;
+        }
+    }
 
     void SetAnimationState(MovementState state)
     {

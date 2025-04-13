@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,22 +8,55 @@ public class ButtonScript : MonoBehaviour
 {
     public bool ButtonPressed { get; private set; }
     public ButtonState CurrentButtonState { get; private set; }
+    private float InArea = 0f;
+    private Animator animator;
+    private string currentAnimation;
+    private bool previousCheck;
 
-
-    // Untested as I dont have a player to test it with yet
-    void OnTriggerStay(Collider other)
+    void Start()
     {
-        if (CurrentButtonState == ButtonState.UNPRESSED)
+        animator = GetComponent<Animator>();
+        previousCheck = ButtonPressed;
+    }
+
+    void Update()
+    {
+    }
+
+    void CheckAreaAmmount()
+    {
+        if (InArea >= 1)
         {
-            SetButtonState(ButtonState.PRESSING);
+            SetButtonState(ButtonState.PRESSED);
+            ButtonPressed = true;
+        }
+        else
+        {
+            SetButtonState(ButtonState.UNPRESSED);
+            ButtonPressed = false;
         }
     }
 
-    void OnTriggerEx2D(Collider2D collision)
+    // Untested as I dont have a player to test it with yet
+    void OnTriggerEnter2D(Collider2D other)
     {
-        SetButtonState(ButtonState.UNPRESSED);
+        Debug.Log("Entered by: " + other.name);
+        InArea += 1;
+        CheckAreaAmmount();
     }
 
+    void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("Left by: " + other.name);
+        InArea -= 1;
+        CheckAreaAmmount();
+    }
+
+    void ChangeAnimation(string animation)
+    {
+        Debug.Log("Starting Animation: " + animation);
+        animator.Play(animation);
+    }
 
     void SetButtonState(ButtonState state)
     {
@@ -31,12 +65,13 @@ public class ButtonScript : MonoBehaviour
         {
             case ButtonState.UNPRESSED:
                 // Idle
+                ChangeAnimation("ButtonIdle");
                 break;
             case ButtonState.PRESSING:
                 // run animation and set to pressed
                 break;
             case ButtonState.PRESSED:
-                // It is pressed, maybe locked in place?
+                ChangeAnimation("ButtonPress");
                 break;
         }
     }
