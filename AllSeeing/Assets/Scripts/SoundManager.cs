@@ -8,10 +8,10 @@ public enum SoundType {
     SOLVED,
     WATER_DROPS,
     WIRES_BUZZING,
-    MUSIC,
-
-    
+    MUSIC,   
 }
+
+
 
 public class SoundCollection {
     private AudioClip[] clips;
