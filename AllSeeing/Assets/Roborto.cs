@@ -24,7 +24,7 @@ public class Roborto : MonoBehaviour
     private float horizAccel = 50f;
     private float horizDeccel = 100f;
     public float airHorizMult;
-    public float RampJumps;
+    public float RampJumps = 0;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -58,11 +58,11 @@ public class Roborto : MonoBehaviour
                     EdgeCompensation = FloorCheckRadius;
                     break;
                 case 1:
-                    rb.velocity = new Vector2(rb.velocity.x * 0.8f, rb.velocity.y * 0.5f);
+                    rb.velocity = new Vector2(rb.velocity.x * 0.95f, rb.velocity.y * 0.5f);
                     EdgeCompensation = FloorCheckRadius;
                     break;
                 case 2:
-                    rb.velocity = new Vector2(rb.velocity.x * 0.98f, rb.velocity.y);
+                    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
                     EdgeCompensation = FloorCheckRadius;
                     break;
                 case 3:
@@ -86,7 +86,7 @@ public class Roborto : MonoBehaviour
         else if (AreYaRamped() && rb.velocity.y >= 0f)
         {
             jumps = 1;
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.98f);
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
             EdgeCompensation = FloorCheckRadius;
             rampJump = true;
 
@@ -122,13 +122,13 @@ public class Roborto : MonoBehaviour
                     rb.velocity = new Vector2(rb.velocity.x * 0.8f, jumpPower * 0.5f);
                     break;
                 case 1:
-                    rb.velocity = new Vector2(rb.velocity.x, jumpPower * 0.9f);
+                    rb.velocity = new Vector2(rb.velocity.x * 0.98f, jumpPower * 0.8f);
                     break;
                 case 2:
-                    rb.velocity = new Vector2(rb.velocity.x, jumpPower * 0.9f);
+                    rb.velocity = new Vector2(rb.velocity.x * 0.96f, jumpPower * 0.8f);
                     break;
                 case 3:
-                    rb.velocity = new Vector2(rb.velocity.x, jumpPower * 1.6f);
+                    rb.velocity = new Vector2(rb.velocity.x , jumpPower * 1.6f);
                     RampJumps = 0;
                     rampJump = false;
                     break;
@@ -148,7 +148,7 @@ public class Roborto : MonoBehaviour
             }
             NextJumpCompensation = 0f;
         }
-        else if (Input.GetButtonDown("Jump") && jumps > 0 && rampJump == false)
+        else if (Input.GetButtonDown("Jump") && jumps > 0 && RampJumps == 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, djPower);
             jumps -= 1;
@@ -189,7 +189,7 @@ public class Roborto : MonoBehaviour
         {
             if (rampJump == true)
             {
-                rb.velocity = new Vector2(Mathf.MoveTowards(rb.velocity.x, rb.velocity.x + (moveSpeed / (RampJumps + 2)) * Direction, horizAccel * Time.deltaTime), rb.velocity.y);
+                rb.velocity = new Vector2(Mathf.MoveTowards(rb.velocity.x, rb.velocity.x + (moveSpeed * airHorizMult / (RampJumps + 5)) * Direction, horizAccel * Time.deltaTime), rb.velocity.y);
                 // Debug.Log("Direction = " + Direction + "Changing X Velocity is = " + rb.velocity.x + " MaxChange = " + (horizDeccel * Time.deltaTime));
             }
             else if (AreYaGrounded() == true)
