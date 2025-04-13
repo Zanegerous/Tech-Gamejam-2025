@@ -11,6 +11,13 @@ public class StageManager : MonoBehaviour
     public NewBehaviourScript door;
 
     private bool EndDoorOpen = false;
+
+     private SoundType[] ambientSounds = new SoundType[] {
+        SoundType.WATER_DROPS,
+        SoundType.WIRES_BUZZING
+    };
+
+
     // Level setup
     void Start()
     {
@@ -33,8 +40,13 @@ public class StageManager : MonoBehaviour
         yield return new WaitForSeconds(5); // Waits
 
         // what you want to repeat
+        if(SoundManager.Instance != null){
+            SoundType randomSound = ambientSounds[Random.Range(0, ambientSounds.Length)];
+            SoundManager.Instance.Play(randomSound);
+        }
 
         StartCoroutine(LevelTimer()); // restarts
+    
     }
 
     IEnumerator GameOverClock()
