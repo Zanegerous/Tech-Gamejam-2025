@@ -9,6 +9,7 @@ public class PlayerAnimationManager : MonoBehaviour
     private string currentAnimation = "";
     private float movementDirection;
     private SpriteRenderer SpriteTexture;
+    private bool walking;
     // Start is called before the first frame update
 
     private void OnDestroy()
@@ -38,11 +39,13 @@ public class PlayerAnimationManager : MonoBehaviour
         {
             SpriteTexture.flipX = true;
             SetAnimationState(MovementState.Walking);
+            TryPlayWalkSound();
         }
         else if (movementDirection > .2f)
         {
             SpriteTexture.flipX = false;
             SetAnimationState(MovementState.Walking);
+            TryPlayWalkSound();
         }
         else
         {
@@ -84,6 +87,28 @@ public class PlayerAnimationManager : MonoBehaviour
         }
     }
 
+    void TryPlayWalkSound()
+    {
+        if (!walking)
+        {
+            StartCoroutine(PlayWalkSound());
+        }
+    }
+
+    IEnumerator PlayWalkSound()
+    {
+        walking = true;
+
+        AudioClip clip = SoundManager.Instance.GetClip(SoundType.WALK);
+        if (clip != null)
+        {
+            SoundManager.Instance.Play(SoundType.WALK);
+            yield return new WaitForSeconds(clip.length);
+        }
+
+        walking = false;
+    }
+
     void SetAnimationState(MovementState state)
     {
         AnimationState = state;
@@ -95,7 +120,7 @@ public class PlayerAnimationManager : MonoBehaviour
                 break;
             case MovementState.Walking:
                 ChangeAnimation("WalkingAnimation2");
-                SoundManager.Instance.Play(SoundType.WALK);
+
                 break;
             case MovementState.Jumping:
                 ChangeAnimation("JumpAnimation2");
