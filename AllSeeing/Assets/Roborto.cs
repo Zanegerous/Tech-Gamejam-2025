@@ -17,7 +17,7 @@ public class Roborto : MonoBehaviour
     private float EdgeCompensation;
     public float NextJumpCompensation;
     public bool rampJump = false;
-    
+
 
 
     private float moveSpeed = 8f;
@@ -31,7 +31,7 @@ public class Roborto : MonoBehaviour
     [SerializeField] private LayerMask ground;
     [SerializeField] private LayerMask ramp;
 
-    
+
     #endregion
 
     //public Transform spawnPt;
@@ -59,12 +59,13 @@ public class Roborto : MonoBehaviour
             rampJump = true;
 
         }
-        else {
-            EdgeCompensation-= Time.deltaTime;
+        else
+        {
+            EdgeCompensation -= Time.deltaTime;
         }
-        
 
-        if (Input.GetButtonDown("Jump")) 
+
+        if (Input.GetButtonDown("Jump"))
         {
             NextJumpCompensation = 0.3f;
         }
@@ -77,13 +78,13 @@ public class Roborto : MonoBehaviour
         #region Regular Ground
         if (EdgeCompensation > 0f && jumps > 0 && NextJumpCompensation > 0f)
         {
-            if (rampJump == true) 
+            if (rampJump == true)
             {
                 Debug.Log("Doin' A Ramp Jump. " + AreYaGrounded());
-                
+
                 RampJumps += 1;
 
-                if (RampJumps == 3) 
+                if (RampJumps == 3)
                 {
                     rb.velocity = new Vector2(rb.velocity.x * 0.8f, jumpPower * 1.4f);
                     rampJump = false;
@@ -96,8 +97,9 @@ public class Roborto : MonoBehaviour
                 jumps = 0;
 
             }
-            else {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            else
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             }
             NextJumpCompensation = 0f;
         }
@@ -105,7 +107,7 @@ public class Roborto : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, djPower);
             jumps -= 1;
-            
+
         }
         #endregion
 
@@ -114,11 +116,11 @@ public class Roborto : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpPower * apexSlowdown);
             EdgeCompensation = 0f;
         }
-        
+
     }
 
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
 
         VelocityCalcX();
@@ -135,19 +137,19 @@ public class Roborto : MonoBehaviour
                 rampJump = false;
             }
             rb.velocity = new Vector2(Mathf.MoveTowards(rb.velocity.x, 0, horizDeccel * Time.deltaTime), rb.velocity.y);
-            
+
         }
         else
         {
             if (rampJump == true)
             {
                 rb.velocity = new Vector2(Mathf.MoveTowards(rb.velocity.x, rb.velocity.x + (moveSpeed / (RampJumps + 1)) * Direction, horizAccel * Time.deltaTime), rb.velocity.y);
-                Debug.Log("Direction = " + Direction + "Changing X Velocity is = " + rb.velocity.x + " MaxChange = " + (horizDeccel * Time.deltaTime));
+                // Debug.Log("Direction = " + Direction + "Changing X Velocity is = " + rb.velocity.x + " MaxChange = " + (horizDeccel * Time.deltaTime));
             }
-            else if (AreYaGrounded() == true)  
+            else if (AreYaGrounded() == true)
             {
                 rb.velocity = new Vector2(Mathf.MoveTowards(rb.velocity.x, moveSpeed * Direction, horizAccel * Time.deltaTime), rb.velocity.y);
-                
+
             }
             else
             {
@@ -155,8 +157,8 @@ public class Roborto : MonoBehaviour
                 rb.velocity = new Vector2(Mathf.MoveTowards(rb.velocity.x, moveSpeed * airHorizMult * Direction, horizAccel * Time.deltaTime), rb.velocity.y);
             }
         }
-            
-        
+
+
     }
 
     private bool AreYaRamped()

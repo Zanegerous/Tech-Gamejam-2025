@@ -40,21 +40,21 @@ public class ButtonScript : MonoBehaviour
     // Untested as I dont have a player to test it with yet
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Entered by: " + other.name);
+        // Debug.Log("Entered by: " + other.name);
         InArea += 1;
         CheckAreaAmmount();
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("Left by: " + other.name);
+        // Debug.Log("Left by: " + other.name);
         InArea -= 1;
         CheckAreaAmmount();
     }
 
     void ChangeAnimation(string animation)
     {
-        Debug.Log("Starting Animation: " + animation);
+        // Debug.Log("Starting Animation: " + animation);
         animator.Play(animation);
     }
 
