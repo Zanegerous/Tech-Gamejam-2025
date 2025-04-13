@@ -2,32 +2,34 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
     private Animator animator;
-    public DoorState StartingDoorState;
+    public string nextLevelName = "UNBOUND";
     private DoorState CurrentState;
     private bool InArea;
     private bool DoorOpen;
+    private Coroutine animationCoroutine;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        SetDoorState(StartingDoorState);
+        SetDoorState(DoorState.CLOSED);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            SetDoorState(DoorState.OPENING);
-        }
         if (Input.GetKeyDown(KeyCode.G) && InArea && DoorOpen)
         {
-            Debug.Log("Entered");
-            // Move to next level?
+            // Debug.Log("Entered");
+            if (nextLevelName != "UNBOUND")
+            {
+                SceneManager.LoadScene(nextLevelName);
+            }
+
         }
     }
 
@@ -41,7 +43,14 @@ public class NewBehaviourScript : MonoBehaviour
 
     void SetDoorState(DoorState state)
     {
+        if (animationCoroutine != null)
+        {
+            StopCoroutine(animationCoroutine);
+            animationCoroutine = null;
+        }
+
         CurrentState = state;
+        // Debug.Log("Switching to  " + state.ToString());
         switch (state)
         {
             case DoorState.CLOSED:
@@ -50,12 +59,12 @@ public class NewBehaviourScript : MonoBehaviour
                 break;
             case DoorState.OPENING:
                 PlayAnimation("Door_Animation", 0, 3);
-                StartCoroutine(WaitForAnimation("Door_Open_Animation", 3));
+                animationCoroutine = StartCoroutine(WaitForAnimation("Door_Animation", 3));
                 break;
             case DoorState.OPEN:
                 // Hold Open
                 DoorOpen = true;
-                Debug.Log("Im Open Now");
+                // Debug.Log("Im Open Now");
                 PlayAnimation("Door_Animation", 1, 0);
                 break;
         }
@@ -69,8 +78,8 @@ public class NewBehaviourScript : MonoBehaviour
             if (animation.name == animationName)
             {
                 yield return new WaitForSeconds(animation.length / speed);
+                // Debug.Log("Door is open");
                 SetDoorState(DoorState.OPEN);
-
                 yield break;
             }
         }
@@ -96,8 +105,15 @@ public class NewBehaviourScript : MonoBehaviour
     // Let the level manager open the end door
     public void OpenEndDoor()
     {
+
         SetDoorState(DoorState.OPENING);
     }
+
+    public void CloseEndDoor()
+    {
+        SetDoorState(DoorState.CLOSED);
+    }
+
 
 
 }

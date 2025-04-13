@@ -7,8 +7,6 @@ public class VariableTerrain : MonoBehaviour
 
     public VisualState requiredToBeActive;
     private SpriteRenderer SpriteTexture;
-    private Collider2D objectCollider;
-    private GameObject myObject;
 
     private void OnDestroy()
     {

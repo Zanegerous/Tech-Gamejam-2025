@@ -70,16 +70,16 @@ public class PlayerAnimationManager : MonoBehaviour
         switch (state)
         {
             case VisualState.COLORLESS_VIEW:
-                SpriteTexture.color = Color.clear;
+                //SpriteTexture.color = Color.clear;
                 break;
             case VisualState.RED_VIEW:
-                SpriteTexture.color = Color.red;
+                //SpriteTexture.color = Color.red;
                 break;
             case VisualState.GREEN_VIEW:
-                SpriteTexture.color = Color.green;
+                //SpriteTexture.color = Color.green;
                 break;
             case VisualState.BLUE_VIEW:
-                SpriteTexture.color = Color.blue;
+                //SpriteTexture.color = Color.blue;
                 break;
         }
     }
