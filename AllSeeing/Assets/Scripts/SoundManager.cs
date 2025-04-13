@@ -84,7 +84,6 @@ public class SoundManager : MonoBehaviour
         sounds = new Dictionary<SoundType, SoundCollection> {
             { SoundType.WATER_DROPS, new SoundCollection("Audio/waterdrip") },
             { SoundType.WIRES_BUZZING, new SoundCollection("Audio/electricity") },
-            { SoundType.MUSIC, new SoundCollection("Audio/music1") },
             { SoundType.JUMP, new SoundCollection("SFX/Jump") },
             { SoundType.IMPACT, new SoundCollection("SFX/Impact") },
             { SoundType.WALK, new SoundCollection("SFX/Walk") },
