@@ -14,6 +14,9 @@ public class PowerScript : MonoBehaviour
         VisualState.BLUE_VIEW
     };
 
+    private VisualState worldState;
+
+
     private SpriteRenderer spriteRenderer;
 
     private void OnDestroy()
@@ -24,6 +27,7 @@ public class PowerScript : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        worldState = VisualState.COLORLESS_VIEW;
         CurrentVisualManager.Instance.OnVisualStateChanged += UpdateColor;
     }
 
@@ -42,35 +46,33 @@ public class PowerScript : MonoBehaviour
 
     private void SwitchLeft()
     {
-        int index = PowerEyeStates.IndexOf(CurrentVisualManager.Instance.State);
-        if (index == 0)
+        int index = (int)worldState - 1;
+        if (index < 0)
         {
-            CurrentVisualManager.Instance.State = PowerEyeStates[PowerEyeStates.Count - 1]; // loop back to max
+            index = (int)VisualState.BLUE_VIEW;
         }
-        else
-        {
-            CurrentVisualManager.Instance.State = PowerEyeStates[index - 1];
-        }
+        worldState = (VisualState)index;
+        CurrentVisualManager.Instance.State = worldState;
+
     }
 
     private void SwitchRight()
     {
-        int index = PowerEyeStates.IndexOf(CurrentVisualManager.Instance.State);
-        if (index == (PowerEyeStates.Count - 1))
+        int index = (int)worldState + 1;
+        if (index > (int)VisualState.BLUE_VIEW)
         {
-            CurrentVisualManager.Instance.State = PowerEyeStates[0]; // Loop to 0
+            index = (int)VisualState.COLORLESS_VIEW;
         }
-        else
-        {
-            CurrentVisualManager.Instance.State = PowerEyeStates[index + 1];
-        }
+        worldState = (VisualState)index;
+        CurrentVisualManager.Instance.State = worldState;
     }
     private void UpdateColor(VisualState state)
     {
-
+        Debug.Log("Switching State to " + state);
         switch (state)
         {
             case VisualState.COLORLESS_VIEW:
+
                 spriteRenderer.color = Color.gray;
                 break;
             case VisualState.RED_VIEW:
@@ -83,6 +85,35 @@ public class PowerScript : MonoBehaviour
                 spriteRenderer.color = Color.blue;
                 break;
         }
+
+    }
+
+    void CycleStates() // Testing
+    {
+        switch (worldState)
+        {
+            case VisualState.RED_VIEW:
+                worldState = VisualState.GREEN_VIEW;
+                CurrentVisualManager.Instance.State = VisualState.GREEN_VIEW;
+                //Debug.Log("Switched to Green");
+                break;
+
+            case VisualState.GREEN_VIEW:
+                worldState = VisualState.BLUE_VIEW;
+                CurrentVisualManager.Instance.State = VisualState.BLUE_VIEW;
+                //Debug.Log("Switched to Blue");
+                break;
+
+            case VisualState.BLUE_VIEW:
+                worldState = VisualState.RED_VIEW;
+                CurrentVisualManager.Instance.State = VisualState.RED_VIEW;
+                //Debug.Log("Switched to Red");
+                break;
+            case VisualState.COLORLESS_VIEW:
+
+                break;
+        }
+
 
     }
 }
