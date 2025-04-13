@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2910354568894194598
+--- !u!1 &2325185858884198317
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,106 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1411082444508666438}
-  - component: {fileID: 8695448325775343118}
-  - component: {fileID: 3951203577625885326}
-  - component: {fileID: 3752222333006323734}
-  - component: {fileID: 8114540624166131683}
-  - component: {fileID: 6505074563964145687}
+  - component: {fileID: 4123841713254575258}
   m_Layer: 0
-  m_Name: Roborto
-  m_TagString: Player
+  m_Name: Left Ramp Check
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1411082444508666438
+--- !u!4 &4123841713254575258
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2910354568894194598}
+  m_GameObject: {fileID: 2325185858884198317}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.21, y: -0.29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8822534442527329334}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3970635521163725108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4664412887069147895}
+  m_Layer: 0
+  m_Name: Right Ramp Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4664412887069147895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3970635521163725108}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.2099998, y: -0.28999996, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8822534442527329334}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4726937216710391254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8822534442527329334}
+  - component: {fileID: 1249375593747556478}
+  - component: {fileID: 6858879896490585342}
+  - component: {fileID: 6766744209713411686}
+  - component: {fileID: 1830290904496275859}
+  - component: {fileID: 3727984937811576423}
+  m_Layer: 0
+  m_Name: Roborto (1)
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8822534442527329334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4726937216710391254}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.57942, y: 6.0565796, z: 0}
   m_LocalScale: {x: 1.5774604, y: 1.5368629, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1079641690255262213}
+  - {fileID: 7422341412749382773}
+  - {fileID: 4664412887069147895}
+  - {fileID: 4123841713254575258}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8695448325775343118
+--- !u!212 &1249375593747556478
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2910354568894194598}
+  m_GameObject: {fileID: 4726937216710391254}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -89,14 +153,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &3951203577625885326
+--- !u!50 &6858879896490585342
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2910354568894194598}
+  m_GameObject: {fileID: 4726937216710391254}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -116,13 +180,13 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3752222333006323734
+--- !u!114 &6766744209713411686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2910354568894194598}
+  m_GameObject: {fileID: 4726937216710391254}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f8585323a3df6c3d83c8ffcf44d2057, type: 3}
@@ -137,21 +201,23 @@ MonoBehaviour:
   rampJump: 0
   airHorizMult: 0.98
   RampJumps: 2
-  rb: {fileID: 3951203577625885326}
-  groundCheck: {fileID: 1079641690255262213}
+  rb: {fileID: 6858879896490585342}
+  groundCheck: {fileID: 7422341412749382773}
+  RampCheckL: {fileID: 4123841713254575258}
+  RampCheckR: {fileID: 4664412887069147895}
   ground:
     serializedVersion: 2
     m_Bits: 64
   ramp:
     serializedVersion: 2
     m_Bits: 128
---- !u!61 &8114540624166131683
+--- !u!61 &1830290904496275859
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2910354568894194598}
+  m_GameObject: {fileID: 4726937216710391254}
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 527f5533754c0c46aa0d612d78c221e3, type: 2}
@@ -190,13 +256,13 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!70 &6505074563964145687
+--- !u!70 &3727984937811576423
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2910354568894194598}
+  m_GameObject: {fileID: 4726937216710391254}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 527f5533754c0c46aa0d612d78c221e3, type: 2}
@@ -225,7 +291,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.7, y: 0.6}
   m_Direction: 0
---- !u!1 &3141125982833137390
+--- !u!1 &4786579995575435422
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,26 +299,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1079641690255262213}
+  - component: {fileID: 7422341412749382773}
   m_Layer: 0
-  m_Name: Spawn
+  m_Name: Floor Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1079641690255262213
+--- !u!4 &7422341412749382773
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3141125982833137390}
+  m_GameObject: {fileID: 4786579995575435422}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1411082444508666438}
+  m_Father: {fileID: 8822534442527329334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

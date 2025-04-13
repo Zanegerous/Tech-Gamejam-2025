@@ -1388,6 +1388,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d468a7c9002ca54084aebae62775e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &634127348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 634127349}
+  m_Layer: 0
+  m_Name: Left Ramp Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &634127349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634127348}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -22.203707, y: 5.489155, z: 0}
+  m_LocalScale: {x: 2.8018827, y: 2.2021158, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2097369331}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &788346538
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,6 +2211,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3071772046776442827, guid: b6f63fd07fb3cd94c8c4e8bb17ab34d4, type: 3}
+      propertyPath: RampCheckL
+      value: 
+      objectReference: {fileID: 634127349}
+    - target: {fileID: 3071772046776442827, guid: b6f63fd07fb3cd94c8c4e8bb17ab34d4, type: 3}
+      propertyPath: RampCheckR
+      value: 
+      objectReference: {fileID: 1929532320}
+    - target: {fileID: 3071772046776442827, guid: b6f63fd07fb3cd94c8c4e8bb17ab34d4, type: 3}
       propertyPath: ramp.m_Bits
       value: 128
       objectReference: {fileID: 0}
@@ -2252,6 +2291,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 811060535664072674, guid: b6f63fd07fb3cd94c8c4e8bb17ab34d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1987364645}
+    - targetCorrespondingSourceObject: {fileID: 811060535664072674, guid: b6f63fd07fb3cd94c8c4e8bb17ab34d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1929532320}
+    - targetCorrespondingSourceObject: {fileID: 811060535664072674, guid: b6f63fd07fb3cd94c8c4e8bb17ab34d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 634127349}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 393804632185898060, guid: b6f63fd07fb3cd94c8c4e8bb17ab34d4, type: 3}
       insertIndex: -1
@@ -4347,6 +4392,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!1 &1929532319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1929532320}
+  m_Layer: 0
+  m_Name: Right Ramp Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1929532320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929532319}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -21.026917, y: 5.489155, z: 0}
+  m_LocalScale: {x: 2.8018827, y: 2.2021158, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2097369331}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1980736261
 GameObject:
   m_ObjectHideFlags: 0
