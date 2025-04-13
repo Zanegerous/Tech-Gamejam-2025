@@ -90,13 +90,13 @@ public class PlayerAnimationManager : MonoBehaviour
         switch (state)
         {
             case MovementState.Idle:
-                ChangeAnimation("Idle");
+                ChangeAnimation("Idle2");
                 break;
             case MovementState.Walking:
-                ChangeAnimation("WalkingAnimation");
+                ChangeAnimation("WalkingAnimation2");
                 break;
             case MovementState.Jumping:
-                ChangeAnimation("JumpAnimation");
+                ChangeAnimation("JumpAnimation2");
                 break;
         }
     }
