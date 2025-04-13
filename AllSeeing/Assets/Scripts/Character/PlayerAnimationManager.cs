@@ -91,12 +91,15 @@ public class PlayerAnimationManager : MonoBehaviour
         {
             case MovementState.Idle:
                 ChangeAnimation("Idle2");
+
                 break;
             case MovementState.Walking:
                 ChangeAnimation("WalkingAnimation2");
+                SoundManager.Instance.Play(SoundType.WALK);
                 break;
             case MovementState.Jumping:
                 ChangeAnimation("JumpAnimation2");
+                SoundManager.Instance.Play(SoundType.JUMP);
                 break;
         }
     }
