@@ -45,13 +45,11 @@ public class VariableTerrain : MonoBehaviour
             if (requiredToBeActive == VisualState.COLORLESS_VIEW)
             {
                 gameObject.SetActive(true);
-                SpriteTexture.color = stateColor;
             }
             else
             if (activated)
             {
                 gameObject.SetActive(true);
-                SpriteTexture.color = stateColor;
             }
             else
             {

@@ -22,7 +22,7 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G) && InArea && DoorOpen)
+        if (Input.GetKeyDown(KeyCode.F) && InArea && DoorOpen)
         {
             // Debug.Log("Entered");
             if (nextLevelName != "UNBOUND")
