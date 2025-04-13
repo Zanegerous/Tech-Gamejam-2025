@@ -689,6 +689,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+<<<<<<< HEAD
 --- !u!82 &541615747
 AudioSource:
   m_ObjectHideFlags: 0
@@ -785,6 +786,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> parent of a58f295 (Final Push)
 --- !u!1 &645805034
 GameObject:
   m_ObjectHideFlags: 0
@@ -2210,7 +2213,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
 --- !u!1 &1100297880
+=======
+--- !u!1 &1162276569
+>>>>>>> parent of a58f295 (Final Push)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2218,15 +2225,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 1100297882}
   - component: {fileID: 1100297881}
   m_Layer: 0
   m_Name: Music
+=======
+  - component: {fileID: 1162276570}
+  - component: {fileID: 1162276573}
+  - component: {fileID: 1162276572}
+  - component: {fileID: 1162276571}
+  m_Layer: 6
+  m_Name: Dynamic Sprite (17)
+>>>>>>> parent of a58f295 (Final Push)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!82 &1100297881
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2324,11 +2341,15 @@ AudioSource:
     m_PostInfinity: 2
     m_RotationOrder: 4
 --- !u!4 &1100297882
+=======
+--- !u!4 &1162276570
+>>>>>>> parent of a58f295 (Final Push)
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1100297880}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -2340,10 +2361,24 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1162276569
 GameObject:
+=======
+  m_GameObject: {fileID: 1162276569}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20.3, y: -1.65, z: 0.13938634}
+  m_LocalScale: {x: 4.992043, y: 0.7147304, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 166038778}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1162276571
+BoxCollider2D:
+>>>>>>> parent of a58f295 (Final Push)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1162276570}
@@ -2378,6 +2413,8 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> parent of a58f295 (Final Push)
   m_GameObject: {fileID: 1162276569}
   m_Enabled: 1
   m_Density: 1
@@ -4133,4 +4170,7 @@ SceneRoots:
   - {fileID: 1243257938}
   - {fileID: 166038778}
   - {fileID: 251691125}
+<<<<<<< HEAD
   - {fileID: 1100297882}
+=======
+>>>>>>> parent of a58f295 (Final Push)

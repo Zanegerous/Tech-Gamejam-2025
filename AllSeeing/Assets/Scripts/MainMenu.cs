@@ -6,14 +6,12 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    public void PlayGame()
-    {
-        SceneManager.LoadSceneAsync("LevelTwo");
+    public void PlayGame(){
+        SceneManager.LoadSceneAsync("LevelOne");
     }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
+   
+   public void QuitGame(){
+    Application.Quit();
+   }
 }
 
