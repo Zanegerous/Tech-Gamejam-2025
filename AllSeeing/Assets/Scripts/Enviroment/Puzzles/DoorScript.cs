@@ -46,17 +46,17 @@ public class NewBehaviourScript : MonoBehaviour
         {
             case DoorState.CLOSED:
                 DoorOpen = false;
-                PlayAnimation("Door_Open_Animation", 0, 0);
+                PlayAnimation("Door_Animation", 0, 0);
                 break;
             case DoorState.OPENING:
-                PlayAnimation("Door_Open_Animation", 0, 3);
+                PlayAnimation("Door_Animation", 0, 3);
                 StartCoroutine(WaitForAnimation("Door_Open_Animation", 3));
                 break;
             case DoorState.OPEN:
                 // Hold Open
                 DoorOpen = true;
                 Debug.Log("Im Open Now");
-                PlayAnimation("Door_Open_Animation", 1, 0);
+                PlayAnimation("Door_Animation", 1, 0);
                 break;
         }
     }
