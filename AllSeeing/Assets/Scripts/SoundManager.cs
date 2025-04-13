@@ -61,6 +61,15 @@ public class SoundCollection
 
 public class SoundManager : MonoBehaviour
 {
+    public AudioClip GetClip(SoundType type)
+    {
+        if (sounds.ContainsKey(type))
+        {
+            return sounds[type].GetRandClip();
+        }
+        return null;
+    }
+
     public float mainVolume = 1.0f;
     private Dictionary<SoundType, SoundCollection> sounds;
     private AudioSource audioSrc;
@@ -85,10 +94,8 @@ public class SoundManager : MonoBehaviour
 
     public void Play(SoundType type, AudioSource overrideSource = null)
     {
-        print("trying to play " + type);
         if (sounds.ContainsKey(type))
         {
-            print("in dictionary");
             var source = overrideSource ?? audioSrc;
             audioSrc.volume = Random.Range(0.70f, 1.0f) * mainVolume;
             audioSrc.pitch = Random.Range(0.75f, 1.25f);
