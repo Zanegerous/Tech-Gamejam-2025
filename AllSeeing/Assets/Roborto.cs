@@ -214,7 +214,7 @@ public class Roborto : MonoBehaviour
     private bool AreYaRamped()
     {
 
-        return (Physics2D.OverlapCircle(RampCheckL.position, FloorCheckRadius, ramp) || Physics2D.OverlapCircle(RampCheckR.position, FloorCheckRadius, ramp));
+        return Physics2D.OverlapCircle(RampCheckL.position, FloorCheckRadius, ramp) || Physics2D.OverlapCircle(RampCheckR.position, FloorCheckRadius, ramp);
     }
 
 
